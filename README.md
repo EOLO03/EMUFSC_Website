@@ -1,7 +1,7 @@
 
   # Web sitesi tasarımı
 
-  This is a code bundle for Web sitesi tasarımı. The original project is available at https://www.figma.com/design/IqyZXsdUK3lOPnblcXGLzV/Web-sitesi-tasar%C4%B1m%C4%B1.
+website for formula student team emufsc
 
   ## Running the code
 
