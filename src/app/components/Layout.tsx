@@ -2,6 +2,7 @@ import { Outlet, Link, useLocation } from "react-router";
 import { Menu, X, Languages } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import ScrollToTop from "./ScrollToTop";
 
 export function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,6 +26,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-black text-white">
+      <ScrollToTop />
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
