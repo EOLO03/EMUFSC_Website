@@ -245,7 +245,20 @@ export function Contact() {
                     {t("contact.visit.button")}
                   </button>
                 </div>
-
+<div className="bg-neutral-900 border border-white/10 rounded-lg p-6 border-red-600/50">
+                  <h3 className="text-xl font-semibold mb-3">Join the Team</h3>
+                  <p className="text-neutral-400 mb-4">
+                    Ready to build the future? Fill out the application form to become a part of our racing team!
+                  </p>
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSehDRov0lOZypwVmEm_BqfLoN24S6BM32PRe3XIkZ4xbODgtg/viewform?usp=dialog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors font-semibold"
+                  >
+                    Application Form
+                  </a>
+                </div>
                 <div className="bg-neutral-900 border border-white/10 rounded-lg p-6">
                   <h3 className="text-xl font-semibold mb-4">{t("contact.social.title")}</h3>
                   <div className="flex gap-4">
