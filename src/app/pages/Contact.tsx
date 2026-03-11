@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone, Send, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+//Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUserimport { Mail, MapPin, Phone, Send, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
 
@@ -32,12 +33,12 @@ export function Contact() {
     {
       icon: Mail,
       title: t("contact.info.email"),
-      content: "info@emufsc.com\nsponsorship@emufsc.com",
+      content: "For Sponsorships: asmefsracing@gmail.com\n For General Information: emufsc@gmail.com",
     },
     {
       icon: Phone,
       title: t("contact.info.phone"),
-      content: "+90 (392) 630 1111\n+90 (533) 123 4567",
+      content: "+90 537 047 4366\n+90 548 877 4569",
     },
   ];
 
@@ -64,8 +65,8 @@ export function Contact() {
     {
       q: "What do I need to do to become a sponsor?",
       qTr: "Sponsor olmak için ne yapmam gerekiyor?",
-      a: "To discuss sponsorship, you can reach us at sponsorship@emufsc.com or use the contact form.",
-      aTr: "Sponsorluk konusunda görüşmek için sponsorship@emufsc.com adresinden veya iletişim formunu kullanarak bize ulaşabilirsiniz.",
+      a: "To discuss sponsorship, you can reach us at asmefsracing@gmail or use the contact form.",
+      aTr: "Sponsorluk konusunda görüşmek için asmefsracing@gmail adresinden veya iletişim formunu kullanarak bize ulaşabilirsiniz.",
     },
     {
       q: "Can I visit the workshop?",
