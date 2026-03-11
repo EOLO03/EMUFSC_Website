@@ -12,10 +12,30 @@ export function Contact() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(t("contact.form.success"));
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    
+    // Senin Formspree linkin eklendi
+    const formspreeLink = "https://formspree.io/f/mvzwaaay";
+
+    try {
+      const response = await fetch(formspreeLink, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert(t("contact.form.success") || "Mesajınız başarıyla gönderildi!");
+        setFormData({ name: "", email: "", subject: "", message: "" }); // Formu temizle
+      } else {
+        alert("Mesaj gönderilirken bir hata oluştu.");
+      }
+    } catch (error) {
+      alert("Sistemsel bir hata oluştu, lütfen daha sonra tekrar deneyin.");
+    }
   };
 
   const handleChange = (
