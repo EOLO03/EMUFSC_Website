@@ -63,11 +63,8 @@ export function Contact() {
   ];
 
   const socialMedia = [
-    { icon: Facebook, name: "Facebook", href: "#" },
-    { icon: Instagram, name: "Instagram", href: "#" },
-    { icon: Twitter, name: "Twitter", href: "#" },
-    { icon: Linkedin, name: "LinkedIn", href: "#" },
-  ];
+    { icon: Instagram, name: "Instagram", href: "https://www.instagram.com/emufsc/" },
+  ];
 
   const faqs = [
     {
