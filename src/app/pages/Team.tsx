@@ -172,7 +172,7 @@ export function Team() {
               </a>
               {/* APPLICATION BUTONU BURASI - Liderinin form linkini buraya bağladım */}
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSehDRov0lOZypwVmEm_BqfLoN24S6BM32PRe3XIkZ4xbODgtg/viewform?usp=dialog"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSehDRov0lOZypwVmEm_BqfLoN24S6BM32PRe3XlkZ4xbODgtg/viewform?usp=dialog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition-colors"
