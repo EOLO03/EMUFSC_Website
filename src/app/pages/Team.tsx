@@ -1,34 +1,51 @@
-import { Users, Wrench, Cpu, TrendingUp, Award, Target } from "lucide-react";
+import { Users, Wrench, Cpu, Code, PenTool, Settings, Briefcase, Award, Target } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { useLanguage } from "../contexts/LanguageContext";
 
 export function Team() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
+  // Senin gönderdiğin şemaya göre güncellenen 5 departman
   const departments = [
     {
-      name: t("team.dept.mechanical"),
-      icon: Wrench,
-      description: t("team.dept.mechanical.desc"),
-      members: 8,
+      name: language === 'tr' ? 'Sponsorluk & Belgeleme' : 'Sponsorships & Documentation',
+      icon: Briefcase,
+      description: language === 'tr' 
+        ? 'Sponsorluk süreçlerini ve resmi dökümantasyonu yöneten ekibimiz.' 
+        : 'Our team managing sponsorship processes and official documentation.',
+      members: 2,
     },
     {
-      name: t("team.dept.electrical"),
+      name: language === 'tr' ? 'Elektrik & Elektronik' : 'Electrical & Electronics',
       icon: Cpu,
-      description: t("team.dept.electrical.desc"),
+      description: language === 'tr' 
+        ? 'Düşük ve yüksek voltaj sistemlerini, PCB tasarımlarını yapan ekibimiz.' 
+        : 'Our team working on low/high voltage systems and PCB designs.',
+      members: 5,
+    },
+    {
+      name: language === 'tr' ? 'Yazılım' : 'Software',
+      icon: Code,
+      description: language === 'tr' 
+        ? 'Telemetri, veri analizi ve gömülü sistem yazılımlarından sorumlu ekibimiz.' 
+        : 'Our team responsible for telemetry, data analysis, and embedded software.',
+      members: 3,
+    },
+    {
+      name: language === 'tr' ? 'Araç Yapısı & Dinamikleri' : 'Car Structure & Dynamics',
+      icon: PenTool,
+      description: language === 'tr' 
+        ? 'Şasi tasarımı, aerodinamik ve araç dinamiği üzerine çalışan ekibimiz.' 
+        : 'Our team working on chassis design, aerodynamics, and vehicle dynamics.',
       members: 7,
     },
     {
-      name: t("team.dept.software"),
-      icon: Target,
-      description: t("team.dept.software.desc"),
-      members: 5,
-    },
-    {
-      name: t("team.dept.business"),
-      icon: TrendingUp,
-      description: t("team.dept.business.desc"),
-      members: 5,
+      name: language === 'tr' ? 'Aktarma Organları' : 'Drivetrain',
+      icon: Settings,
+      description: language === 'tr' 
+        ? 'Motor gücünün tekerleklere iletilmesi ve mekanik montaj ekibimiz.' 
+        : 'Our team focusing on power transmission and mechanical assembly.',
+      members: 4,
     },
   ];
 
@@ -56,7 +73,7 @@ export function Team() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1580835921597-91c6b459c917?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbmdpbmVlcmluZyUyMHRlYW0lMjB3b3Jrc2hvcHxlbnwxfHx8fDE3NzI5OTQ3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://images.unsplash.com/photo-1580835921597-91c6b459c917?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlbmdpbmVlcmluZyUyMHRlYW0lMjB3b3Jrc2hvcHxlbnwxfHx8fDE3NzI5OTQ3MzR8MA&ixlib=rb-4.1.0&q=80&w=1080"
             alt="Team"
             className="w-full h-full object-cover"
           />
@@ -79,15 +96,9 @@ export function Team() {
             <h2 className="text-4xl font-bold mb-6">
               {t("team.story.title")}<span className="text-red-600">{t("team.story.titleHighlight")}</span>
             </h2>
-            <p className="text-neutral-300 mb-4">
-              {t("team.story.p1")}
-            </p>
-            <p className="text-neutral-300 mb-4">
-              {t("team.story.p2")}
-            </p>
-            <p className="text-neutral-300">
-              {t("team.story.p3")}
-            </p>
+            <p className="text-neutral-300 mb-4">{t("team.story.p1")}</p>
+            <p className="text-neutral-300 mb-4">{t("team.story.p2")}</p>
+            <p className="text-neutral-300">{t("team.story.p3")}</p>
           </div>
         </div>
       </section>
@@ -98,20 +109,23 @@ export function Team() {
           <h2 className="text-4xl font-bold mb-12 text-center">
             {t("team.departments.title")}<span className="text-red-600">{t("team.departments.titleHighlight")}</span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Departmanları yan yana 5'li sığdırmak için grid ayarını güncelledim */}
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {departments.map((dept, index) => (
               <div
                 key={index}
-                className="bg-black border border-white/10 rounded-lg p-6 hover:border-red-600 transition-colors"
+                className="bg-black border border-white/10 rounded-lg p-6 hover:border-red-600 transition-colors flex flex-col justify-between"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-red-600/20 rounded-lg mb-4">
-                  <dept.icon className="h-6 w-6 text-red-600" />
+                <div>
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-red-600/20 rounded-lg mb-4">
+                    <dept.icon className="h-6 w-6 text-red-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 leading-tight">{dept.name}</h3>
+                  <p className="text-neutral-400 text-sm mb-4">{dept.description}</p>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{dept.name}</h3>
-                <p className="text-neutral-400 mb-4">{dept.description}</p>
                 <div className="flex items-center text-sm text-neutral-500">
                   <Users className="h-4 w-4 mr-1" />
-                  {dept.members} {t("team.dept.members")}
+                  {dept.members} {language === 'tr' ? 'Üye' : 'Members'}
                 </div>
               </div>
             ))}
@@ -156,8 +170,11 @@ export function Team() {
               >
                 {t("team.join.cta1")}
               </a>
+              {/* APPLICATION BUTONU BURASI - Liderinin form linkini buraya bağladım */}
               <a
-                href="#"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSehDRov0lOZypwVmEm_BqfLoN24S6BM32PRe3XIkZ4xbODgtg/viewform?usp=dialog"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center px-8 py-3 border border-white text-white rounded-lg hover:bg-white/10 transition-colors"
               >
                 {t("team.join.cta2")}
